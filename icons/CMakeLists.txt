@@ -4,9 +4,13 @@ endif()
 
 ########### install files ###############
 
-set(breeze_icon_dirs
-    actions animations applets apps categories preferences devices emblems
-    emotes mimetypes places status)
+FILE(GLOB possible_icon_dirs RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/*)
+SET(breeze_icon_dirs "")
+FOREACH(possible_icon_dir ${possible_icon_dirs})
+    IF(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${possible_icon_dir})
+        LIST(APPEND breeze_icon_dirs ${possible_icon_dir})
+    ENDIF()
+ENDFOREACH()
 
 set(BREEZE_INSTALL_DIR ${KDE_INSTALL_FULL_ICONDIR}/breeze)
 
@@ -27,6 +31,10 @@ endif()
 
 if(NOT SKIP_INSTALL_ICONS)
     install(DIRECTORY ${breeze_icon_dirs} DESTINATION ${BREEZE_INSTALL_DIR})
+    # collect all our icons we need to install, will be used by dark icon set as fallback icons if not there, too
+    file(GLOB_RECURSE icon_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/*.svg")
+    set(BREEZE_LIGHT_ICONS ${icon_files} PARENT_SCOPE)
+
     install(FILES index.theme DESTINATION ${BREEZE_INSTALL_DIR})
     if(WITH_ICON_GENERATION)
         install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/generated/ DESTINATION ${BREEZE_INSTALL_DIR})

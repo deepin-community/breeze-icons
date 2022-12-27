@@ -1,3 +1,35 @@
+breeze-icons (4:5.90.0-1) experimental; urgency=medium
+
+  [ Norbert Preining ]
+  * New upstream release (5.89.0).
+  * Cherry-pick upstream fixes for HiRes icons.
+
+  [ Aurélien COUDERC ]
+  * New upstream release (5.90.0) (Closes: #1000682).
+  * Added myself to the uploaders.
+  * Drop patches applied upstream.
+  * Backport upstream commits to fix failing tests.
+  * Add Breaks: kdenlive-data (<< 21.04.3-2). (Closes: #992320)
+
+ -- Aurélien COUDERC <coucouf@debian.org>  Fri, 11 Feb 2022 23:46:40 +0100
+
+breeze-icons (4:5.88.0-2) unstable; urgency=medium
+
+  * Revert changes that trigger upstream bug 445518
+    "KDE Plasma doesn't respect icon theme for some applications and
+     application icons"
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 21 Nov 2021 08:39:42 +0900
+
+breeze-icons (4:5.88.0-1) unstable; urgency=medium
+
+  [ Norbert Preining ]
+  * New upstream release (5.87.0).
+  * New upstream release (5.88.0).
+  * Force-bump frameworks internal b-d to 5.88.
+
+ -- Norbert Preining <norbert@preining.info>  Wed, 17 Nov 2021 06:07:37 +0900
+
 breeze-icons (4:5.86.0-1) unstable; urgency=medium
 
   [ Norbert Preining ]

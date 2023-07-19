@@ -6,12 +6,12 @@ Uploaders: Aurélien COUDERC <coucouf@debian.org>,
            Norbert Preining <norbert@preining.info>,
 Build-Depends: cmake (>= 3.16~),
                debhelper-compat (= 13),
-               extra-cmake-modules (>= 5.90.0~),
+               extra-cmake-modules (>= 5.103.0~),
                fdupes,
                libxml2-utils,
                pkg-kde-tools,
                qtbase5-dev (>= 5.15.2~),
-Standards-Version: 4.6.0
+Standards-Version: 4.6.2
 Homepage: https://invent.kde.org/frameworks/breeze-icons
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/breeze-icons
 Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/breeze-icons.git
@@ -20,8 +20,8 @@ Rules-Requires-Root: no
 Package: breeze-icon-theme
 Architecture: all
 Multi-Arch: foreign
-Depends: hicolor-icon-theme, ${misc:Depends}
-Breaks: kdenlive (<< 21.04.3-2)
+Depends: hicolor-icon-theme, ${misc:Depends},
+Breaks: kdenlive (<< 21.04.3-2),
 Description: Default Plasma icon theme
  This is the default icon theme for the KDE Plasma 5 desktop.
  .
@@ -30,7 +30,7 @@ Description: Default Plasma icon theme
 Package: breeze-icon-theme-rcc
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
 Description: RCC resources for the breeze icon theme
  Breeze is the default icon theme for the KDE Plasma 5 desktop. This package
  contains the icons in RCC format.
